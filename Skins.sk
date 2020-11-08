@@ -1,0 +1,699 @@
+#-=-=-=-=-=-=-=-=-=-=
+# POWER BELT
+#-=-=-=-=-=-=-=-=-=-=
+		
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&5&lPower Belt&f&l)":
+		if event-item is any leggings:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &5&lPower Belt"
+				add "{cosmicData:{itemSkinType:""CORRUPT_BELT_POWER""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop 
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+				
+#-=-=-=-=-=-=-=-=-=-=
+# SANTA HAT
+#-=-=-=-=-=-=-=-=-=-=		
+	
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&c&lSanta Hat&f&l)":
+		if event-item is any helmet:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &c&lSanta Hat"
+				add "{cosmicData:{itemSkinType:""SANTA_HAT""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop 
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+				
+				
+#-=-=-=-=-=-=-=-=-=-=
+# AMULET OF CORRUPTION
+#-=-=-=-=-=-=-=-=-=-=		
+		
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&5&lAmulet of Corruption&f&l)":
+		if event-item is any chestplate:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &5&lAmulet of Corruption"
+				add "{cosmicData:{itemSkinType:""CORRUPT_AMULET_CORRUPTION""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop 
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+				
+#-=-=-=-=-=-=-=-=-=-=
+# CORRUPT COSMONAUT VISOR
+#-=-=-=-=-=-=-=-=-=-=		
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&5&lCorrupt Cosmonaut Visor&f&l)":
+		if event-item is any helmet:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &5&lCorrupt Cosmonaut Visor"
+				add "{cosmicData:{itemSkinType:""CORRUPT_HELMET""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# DIVINE SASH
+#-=-=-=-=-=-=-=-=-=-=		
+		
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&c&lDivine Sash&f&l)":
+		if event-item is any leggings:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &c&lDivine Sash"
+				add "{cosmicData:{itemSkinType:""CUPID_BELT""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+on damage of a player:
+	attacker is a player
+	if lore of victim's leggings contains "&c&lDivine Sash":					
+		remove slowness from victim
+		remove mining fatigue from victim		
+		remove blindness from victim
+		remove nausea from victim		
+		remove poison from victim		
+		chance of 5.0/100:				
+			send "&e&l* BLESSED &7(Divine Sash) &e&l*" to victim
+
+#-=-=-=-=-=-=-=-=-=-=
+# FLAMING HALO
+#-=-=-=-=-=-=-=-=-=-=				
+
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&e&lFlaming &6&lHalo&f&l)":
+		if event-item is any helmet:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &e&lFlaming &6&lHalo &f&l(&c-2%% Incoming Damage&f&l)"
+				add "{cosmicData:{itemSkinType:""FLAMING_HALO""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+on damage:
+	attacker is a entity
+	if lore of victim's helmet contains "&e&lFlaming &6&lHalo":
+		set the damage to the damage - 2.0	
+
+#-=-=-=-=-=-=-=-=-=-=
+# HAZMAT BOOTS
+#-=-=-=-=-=-=-=-=-=-=	
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&2&lHazmat Boots&f&l)":
+		if event-item is any boots:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &2&lHazmat Boots"
+				add "{cosmicData:{itemSkinType:""VIRUS_BOOTS""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+
+on damage of a player:
+	attacker is a player
+	if lore of victim's boots contains "&2&lHazmat Boots":					
+		remove slowness from victim
+		remove mining fatigue from victim		
+		remove blindness from victim
+		remove nausea from victim		
+		remove poison from victim		
+		chance of 5.0/100:				
+			send "&e&l* BLESSED &7(Hazmat Boots) &e&l*" to victim
+
+#-=-=-=-=-=-=-=-=-=-=
+# HAZMAT HELMET
+#-=-=-=-=-=-=-=-=-=-=
+		
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&2&lHazmat Helmet&f&l)":
+		if event-item is any helmet:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &2&lHazmat Helmet"
+				add "{cosmicData:{itemSkinType:""VIRUS_HELMET_HAZMAT""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop		
+		
+on damage of a player:
+	attacker is a player
+	if lore of victim's helmet contains "&2&lHazmat Helmet":					
+		remove slowness from victim	
+		chance of 5.0/100:				
+			send "&2&l* HAZMAT HELMET [&7Freeze Blocked&2&l] *" to victim			
+			send "&8&l* HAZMAT HELMET [&7Immune to Freeze&8&l] *" to attacker		
+
+#-=-=-=-=-=-=-=-=-=-=
+# RAINBOW BELT
+#-=-=-=-=-=-=-=-=-=-=				
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&c&lRainbow Belt&f&l)":
+		if event-item is any leggings:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &c&lRainbow Belt"
+				add "{cosmicData:{itemSkinType:""EASTER_BELT""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop	
+
+on damage:
+	attacker is a entity
+	{blackout.%victim%} = false		
+	if lore of victim's leggings contains "&c&lRainbow Belt":
+		set the damage to the damage - 7.5			
+
+#-=-=-=-=-=-=-=-=-=-=
+# CORRUPT SWORD
+#-=-=-=-=-=-=-=-=-=-=				
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&5&lCorrupt Greatsword&f&l)":
+		if event-item is any swords:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &5&lCorrupt Greatsword"
+				add "{cosmicData:{itemSkinType:""CORRUPT_SWORD""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+#-=-=-=-=-=-=-=-=-=-=
+# MEAT CLEAVER
+#-=-=-=-=-=-=-=-=-=-=				
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&d&lMeat Cleaver&f&l)":
+		if event-item is any axe:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &d&lMeat Cleaver"
+				add "{cosmicData:{itemSkinType:""MEAT_CLEAVER_AXE""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# SEXY BOOTS
+#-=-=-=-=-=-=-=-=-=-=	
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&b&lSexy Boots&f&l)":
+		if event-item is any boots:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &b&lSexy Boots"
+				add "{cosmicData:{itemSkinType:""SEXY_BOOTS""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# SEXY SWORD
+#-=-=-=-=-=-=-=-=-=-=	
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&b&lSexy Sword&f&l)":
+		if event-item is any sword:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &b&lSexy Sword"
+				add "{cosmicData:{itemSkinType:""SEXY_SWORD""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+#-=-=-=-=-=-=-=-=-=-=
+# SEXY AMULET
+#-=-=-=-=-=-=-=-=-=-=	
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&b&lSexy Amulet&f&l)":
+		if event-item is any chestplate:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &b&lSexy Amulet"
+				add "{cosmicData:{itemSkinType:""SEXY_AMULET""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+#-=-=-=-=-=-=-=-=-=-=
+# SEXY BELT
+#-=-=-=-=-=-=-=-=-=-=	
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&b&lSexy Belt&f&l)":
+		if event-item is any leggings:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &b&lSexy Belt"
+				add "{cosmicData:{itemSkinType:""SEXY_BELT""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+#-=-=-=-=-=-=-=-=-=-=
+# SEXY HELMET
+#-=-=-=-=-=-=-=-=-=-=	
+
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&b&lSexy Helmet&f&l)":
+		if event-item is any helmet:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &b&lSexy Helmet"
+				add "{cosmicData:{itemSkinType:""SEXY_HELMET""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# VIRUS SWORD
+#-=-=-=-=-=-=-=-=-=-=	
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&2&lVirus Sword&f&l)":
+		if event-item is any sword:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &2&lVirus Sword"
+				add "{cosmicData:{itemSkinType:""VIRUS_SWORD""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# VIRUS HELMET
+#-=-=-=-=-=-=-=-=-=-=				
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&2&lVirus Helmet&f&l)":
+		if event-item is any helmet:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &2&lVirus Helmet"
+				add "{cosmicData:{itemSkinType:""VIRUS_HELMET_N95""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# VIRUS BELT
+#-=-=-=-=-=-=-=-=-=-=	
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&2&lVirus Belt&f&l)":
+		if event-item is any leggings:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &2&lVirus Belt"
+				add "{cosmicData:{itemSkinType:""VIRUS_BELT""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# SEXY BOOTS
+#-=-=-=-=-=-=-=-=-=-=				
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&2&lVirus Boots&f&l)":
+		if event-item is any boots:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &2&lVirus Boots"
+				add "{cosmicData:{itemSkinType:""VIRUS_BOOTS""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# SPRING AXE
+#-=-=-=-=-=-=-=-=-=-=				
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&e&lSpring Axe&f&l)":
+		if event-item is any axe:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &e&lSpring Axe"
+				add "{cosmicData:{itemSkinType:""SPRING_2020_AXE""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+			
+#-=-=-=-=-=-=-=-=-=-=
+# SPRING SWORd
+#-=-=-=-=-=-=-=-=-=-=				
+			
+on mor.inventory click:
+	if name of cursor item of player contains "&f&lItem Skin (&e&lSpring Sword&f&l)":
+		if event-item is any sword:
+			if lore of event-item does not contain "&f&lITEM SKIN:":
+				cancel event
+				set lore of event-item to "%lore of event-item%||&f&lITEM SKIN: &e&lSpring Sword"
+				add "{cosmicData:{itemSkinType:""SPRING_2020_SWORD""}}" to item-nbt of event-item
+				set cursor item of player to air
+			else:
+				cancel event
+				message "&cThis item already contains a Item skin!"
+				stop
+		else if event-item is air:
+			stop
+		else:
+			send "&cYou cannot apply this item skin to this item!"
+			stop
+
+on damage:
+	attacker is a entity	
+	if lore of attacker's held item contains "&5&lCorrupt Greatsword":
+		set {_damage} to damage
+		set damage to ({_damage}*1.05)
+
+command /itemskin [<text>] [<player>]:
+	aliases: /itemskins, /is
+	permission:	itemskin.god
+	trigger:
+		if arg 1 is not set:
+			send "&a&m----&7&m-------------------------&a&m----"
+			send "&2&lItem Skin Types:"
+			send "&aSpringSword"
+			send "&aSpringAxe"
+			send "&aVirusBoots"
+			send "&aVirusBelt"
+			send "&aVirusHelmet"
+			send "&aVirusSword"
+			send "&aSexyHelmet"
+			send "&aSexyBelt"
+			send "&aSexyAmulet"
+			send "&aSexyBoots"
+			send "&aSexySword"
+			send "&aMeatCleaver"
+			send "&aCorruptGreatsword"
+			send "&aRainbowBelt"
+			send "&aHazmatHelmet"
+			send "&aHazmatBoots"
+			send "&aFlamingHalo"
+			send "&aDivineSash"
+			send "&aCorruptCosmonautVisor"
+			send "&aAmuletofCorruption"
+			send "&aPowerBelt"
+			send "&aSantaHat"
+			send ""
+			send "&7Incorrect Usage:"
+			send "&a/itemskin SexySword COSMLC"
+			send "&a&m----&7&m-------------------------&a&m----"
+			stop
+		if arg 2 is not set:
+			send "&a&m----&7&m-------------------------&a&m----"
+			send "&2&lItem Skin Types:"
+			send "&aSpringSword"
+			send "&aSpringAxe"
+			send "&aVirusBoots"
+			send "&aVirusBelt"
+			send "&aVirusHelmet"
+			send "&aVirusSword"
+			send "&aSexyHelmet"
+			send "&aSexyBelt"
+			send "&aSexyAmulet"
+			send "&aSexyBoots"
+			send "&aSexySword"
+			send "&aMeatCleaver"
+			send "&aCorruptGreatsword"
+			send "&aRainbowBelt"
+			send "&aHazmatHelmet"
+			send "&aHazmatBoots"
+			send "&aFlamingHalo"
+			send "&aDivineSash"
+			send "&aCorruptCosmonautVisor"
+			send "&aAmuletofCorruption"
+			send "&aPowerBelt"
+			send "&aSantaHat"
+			send ""
+			send "&7Incorrect Usage:"
+			send "&a/itemskin SexySword COSMLC"
+			send "&a&m----&7&m-------------------------&a&m----"
+			stop
+		if arg 2 is set:
+			if arg 1 is "SpringSword":
+				give arg-2 a 381 named "&f&lItem Skin (&e&lSpring Sword&f&l)" with lore "||&7&oAttach this skin to any&r &f&nSwords||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SpringAxe":
+				give arg-2 a 381 named "&f&lItem Skin (&e&lSpring Axe&f&l)" with lore "||&7&oAttach this skin to any&r &f&nAxes||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "VirusBoots":
+				give arg-2 a 381 named "&f&lItem Skin (&2&lVirus Boots&f&l)" with lore "||&7&oAttach this skin to any&r &f&nBoots||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "VirusBelt":
+				give arg-2 a 381 named "&f&lItem Skin (&2&lVirus Belt&f&l)" with lore "||&7&oAttach this skin to any&r &f&nLeggings||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "VirusHelmet":
+				give arg-2 a 381 named "&f&lItem Skin (&2&lVirus Helmet&f&l)" with lore "||&7&oAttach this skin to any&r &f&nHelmets||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "VirusSword":
+				give arg-2 a 381 named "&f&lItem Skin (&2&lVirus Sword&f&l)" with lore "||&7&oAttach this skin to any&r &f&nSwords||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SexyHelmet":
+				give arg-2 a 381 named "&f&lItem Skin (&b&lSexy Helmet&f&l)" with lore "||&7&oAttach this skin to any&r &f&nHelmets||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SexyBelt":
+				give arg-2 a 381 named "&f&lItem Skin (&b&lSexy Belt&f&l)" with lore "||&7&oAttach this skin to any&r &f&nLeggings||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SexyAmulet":
+				give arg-2 a 381 named "&f&lItem Skin (&b&lSexy Amulet&f&l)" with lore "||&7&oAttach this skin to any&r &f&nChestplates||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SexySword":
+				give arg-2 a 381 named "&f&lItem Skin (&b&lSexy Sword&f&l)" with lore "||&7&oAttach this skin to any&r &f&nSwords||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SexyBoots":
+				give arg-2 a 381 named "&f&lItem Skin (&b&lSexy Boots&f&l)" with lore "||&7&oAttach this skin to any&r &f&nBoots||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "MeatCleaver":
+				give arg-2 a 381 named "&f&lItem Skin (&d&lMeat Cleaver&f&l)" with lore "||&7&oAttach this skin to any&r &f&nAxes||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "CorruptGreatsword":
+				give arg-2 a 381 named "&f&lItem Skin (&5&lCorrupt Greatsword&f&l)" with lore "||&7&oAttach this skin to any&r &f&nSwords||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "RainbowBelt":
+				give arg-2 a 381 named "&f&lItem Skin (&c&lRainbow Belt&f&l)" with lore "||&7&oAttach this skin to any&r &f&nLeggings||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "HazmatHelmet":
+				give arg-2 a 381 named "&f&lItem Skin (&2&lHazmat Helmet&f&l)" with lore "||&7&oAttach this skin to any&r &f&nHelmets||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "HazmatBoots":
+				give arg-2 a 381 named "&f&lItem Skin (&2&lHazmat Boots&f&l)" with lore "||&7&oAttach this skin to any&r &f&nBoots||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "FlamingHalo":
+				give arg-2 a 381 named "&f&lItem Skin (&e&lFlaming &6&lHalo&f&l)" with lore "||&7&oAttach this skin to any&r &f&nHelmets||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "DivineSash":
+				give arg-2 a 381 named "&f&lItem Skin (&c&lDivine Sash&f&l)" with lore "||&7&oAttach this skin to any&r &f&nLeggings||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "CorruptCosmonautVisor":
+				give arg-2 a 381 named "&f&lItem Skin (&5&lCorrupt Cosmonaut Visor&f&l)" with lore "||&7&oAttach this skin to any&r &f&nHelmets||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "AmuletofCorruption":
+				give arg-2 a 381 named "&f&lItem Skin (&5&lAmulet of Corruption&f&l)" with lore "||&7&oAttach this skin to any&r &f&nChestplates||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "PowerBelt":
+				give arg-2 a 381 named "&f&lItem Skin (&5&lPower Belt&f&l)" with lore "||&7&oAttach this skin to any&r &f&nLeggings||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			if arg 1 is "SantaHat":
+				give arg-2 a 381 named "&f&lItem Skin (&c&lSanta Hat&f&l)" with lore "||&7&oAttach this skin to any&r &f&nHelmets||&7&oto override its visual appearance.||||&c&lNOTE:&r &cRequires the old cosmic client||&cto render custom item skins.||&7* Download at &ncosmicclient.servername.com||||&7Drag n' Drop onto item to attach."
+				stop
+			send "&a&m----&7&m-------------------------&a&m----"
+			send "&2&lItem Skin Types:"
+			send "&aSpringSword"
+			send "&aSpringAxe"
+			send "&aVirusBoots"
+			send "&aVirusBelt"
+			send "&aVirusHelmet"
+			send "&aVirusSword"
+			send "&aSexyHelmet"
+			send "&aSexyBelt"
+			send "&aSexyAmulet"
+			send "&aSexyBoots"
+			send "&aSexySword"
+			send "&aMeatCleaver"
+			send "&aCorruptGreatsword"
+			send "&aRainbowBelt"
+			send "&aHazmatHelmet"
+			send "&aHazmatBoots"
+			send "&aFlamingHalo"
+			send "&aDivineSash"
+			send "&aCorruptCosmonautVisor"
+			send "&aAmuletofCorruption"
+			send "&aPowerBelt"
+			send "&aSantaHat"
+			send ""
+			send "&7Incorrect Usage:"
+			send "&a/itemskin SexySword COSMLC"
+			send "&a&m----&7&m-------------------------&a&m----"
+		
+command /rename <text>:
+	permission: rename.rename
+	permission message: &c&lYou don't have permission for this command!
+	trigger:
+		if arg 1 is not set:
+			send "&eUse&6 /rename (message)"
+			stop
+		if arg 1 is set:
+			set the name of player's tool to "%colored arg 1%"
+			send "&5&lInfinity > &dRenamed to: %colored arg 1%"
+			stop 
